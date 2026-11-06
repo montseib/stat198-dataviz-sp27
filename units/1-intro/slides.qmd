@@ -1,6 +1,6 @@
 ---
-title: "Week 1"
-subtitle: "Introduction"
+title: Week 1
+subtitle: Introduction
 format:
   revealjs
 ---

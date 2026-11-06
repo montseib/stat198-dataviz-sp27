@@ -1,0 +1,340 @@
+---
+title: Dashboards
+subtitle: "STAT 198"
+format:
+  stat198slides-revealjs:
+    chalkboard: false
+embed-resources: true
+---
+
+## Data Dashboards {auto-animate=true}
+
+A *Data Dashboard* is an interactive display of selected statistics and plots to allow the user to quickly monitor, explore, and understand patterns in data.
+
+Used for:
+
+::: {.columns}
+::: {.column}
+1. **Real-time Monitoring**
+   - [California Power Outages Map](https://www.arcgis.com/apps/dashboards/2f50a16613fa4f7f801b27a09a0be241){preview-link=true}
+   - [Fremont Climate Action](https://www.fremont.gov/government/citywide-initiatives/data-dashboards/climate-action-dashboard){preview-link=true}
+:::
+::: {.column .fragment}
+2. **Data Visualization**
+   - [COVID 19 World Map Tracker](https://ourworldindata.org/explorers/covid?Metric=Excess+mortality+%28estimates%29&Interval=Cumulative&Relative+to+population=true&country=USA~BRA~JPN~DEU){preview-link=true}
+   - [CalViz Degrees](https://calviz.berkeley.edu/t/OPAP/views/DegreeRecipientsByMajor/ExecutiveSummary)
+:::
+:::
+
+
+## Quarto Dashboards
+
+We can use the same `.qmd` files we have been using for activities (with small changes) to create clean, static dashboards!
+
+
+# Demo
+
+
+## Links:
+
+Please open each of the following in a different browser tab.
+
+*Documentation*: <https://quarto.org/docs/dashboards/>
+
+*Dashboard Demo on BCourses (today's activity)*: <https://bcourses.berkeley.edu/courses/1553882/assignments/9070595>
+
+> Download the qmd file and open it in your IDE.
+
+::: notes
+Click on link yourself and edit the dashboard on DataHub. First steps:
+
+1. Render the doc as is and discuss how there are code cells that run and show but no output.
+1. Have them add their name as author (so you can tell their submissions apart).
+1. Run quarto publish to publish the HTML file.
+1. Ask a student for their URL and project it to show that it is indeed publicly available.
+2. Add format: dashboard.
+:::
+
+# Dashboard Anatomy
+
+## Navbar
+
+. . .
+
+```markdown
+--- 
+title: "Palmer Penguins"
+author: "Cobblepot Analytics"
+format: 
+  dashboard:
+    logo: images/penguins.png
+    nav-buttons: [linkedin, twitter, github]
+---
+```
+
+<https://quarto.org/docs/reference/projects/websites.html#nav-items>{preview-link=true}
+
+
+## Layout
+
+- Define new row with `## Row`, new column with `## Column`
+- Nest one inside the other using `###` for child (e.g. `### Column`)
+- Defaults to row-by-row layout. Change by using
+
+. . .
+
+```markdown
+---
+format:
+  dashboard:
+    orientation: columns
+---
+```
+
+- In general, each code cell creates one card
+- Tune dimensions by adding e.g. `## Row {height=30%}`
+
+
+
+## Layout by row {.smaller}
+
+. . .
+
+::: {.columns}
+::: {.column}
+
+````markdown
+---
+format: dashboard
+---
+    
+## Row {height=70%}
+
+```{{r}}
+```
+
+## Row {height=30%}
+
+```{{r}}
+```
+
+```{{r}}
+```
+````
+:::
+::: {.column}
+:::
+:::
+
+## Layout by column {.smaller}
+
+. . .
+
+::: {.columns}
+::: {.column}
+````markdown
+---
+format: 
+  dashboard:
+    orientation: columns
+---
+    
+## Column {width=60%}
+
+```{{r}}
+```
+
+## Column {width=40%}
+
+```{{r}}
+```
+
+```{{r}}
+```
+````
+:::
+::: {.column}
+:::
+:::
+
+## Your turn
+
+1. Add four empty cards to your document by adding inserting four blank code cells at the bottom.
+2. Arrange them in a 2 x 2 grid layout.
+
+{{< countdown 2:30 >}}
+
+# Data Display
+
+## Plots {.smaller}
+
+. . .
+
+You can insert graphics from ggplot, base R, or an interactive library. It can be helpful to tweak `fig-width` and `fig-height`.
+
+. . .
+
+::: {.columns}
+::: {.column}
+
+````markdown
+## Row {height="65%"}
+
+```{{r}}
+#| fig-width: 10
+#| fig-height: 8
+plot(cars)
+```
+
+## Row {height="35%"}
+        
+```{{r}}
+#| fig-width: 5
+#| fig-height: 4
+plot(pressure)
+```
+    
+```{{r}}
+#| fig-width: 5
+#| fig-height: 4
+plot(airmiles)
+```
+````
+:::
+::: {.column}
+:::
+:::
+
+## Tables {auto-animate=true}
+
+1. Static table: `gt::gt`, `knitr::kable()`.
+1. Interactive table: `DT::datatable()`
+
+
+## `kable()` {.smaller}
+
+```{r}
+library(knitr)
+kable(mtcars)
+```
+
+
+## `datatable()` {.smaller}
+```{r}
+library(DT)
+datatable(mtcars)
+```
+
+
+## Value boxes
+
+You can create a dynamic value box using the following.
+
+````markdown
+```{{r}}
+#| component: valuebox
+#| title: My big number
+list(
+  icon = "stopwatch",
+  color = "primary",
+  value = x
+)
+```
+````
+
+## Blank Cards
+
+. . .
+
+You can create a blank card to fill with anything (code, images, markdown) using:
+
+```markdown
+::: {.card}
+Gapminder combines data from multiple sources into
+unique coherent time-series that can’t be found
+elsewhere. Learn more about the Gampminder dataset at
+<https://www.gapminder.org/data/>.
+:::
+```
+
+## Your Turn
+
+Display the data on earthquakes in your dashboard according to the following layout.
+
+{{< countdown 6:00 >}}
+
+
+## Pages {.smaller}
+
+Split your dashboard into multiple pages by adding level one headers with the page name. This example uses two pages, "Bills" and "Flippers", that will be linked in the navbar.
+
+::: {.columns}
+::: {.column}
+````markdown
+---
+title: "Palmer Penguins"
+format: dashboard
+---
+    
+# Bills 
+
+```{{r}}
+```
+
+# Flippers
+
+## Column
+
+```{{r}}
+```
+
+```{{r}}
+```
+
+## Column 
+
+```{{r}}
+```
+````
+:::
+::: {.column}
+:::
+:::
+
+
+# Submission
+
+Once you've finished making these changes and testing out the dashboard formatting with different components of the demo, submit your `.qmd` file to the BCourses assignment. 
+
+# Final Project Elements {.smaller}
+
+-   Final Project Proposal
+
+    -   Type: Google doc pdf
+    -   To: BCourses
+    -   Due: 4/20, 11:59 PM
+
+-   Presentation:
+
+    -   Type: google slides
+    -   Due: BCourses
+    -   Due: 4/27, 11:59 PM
+
+-   Coding Materials:
+
+    -   Type: QMD file + csv of your data
+    -   To: BCourses
+    -   Due: 4/27, 11:59 PM
+
+## Project Work Time
+
+- Questions on your project? Now's the time to ask us!
+
+- Next week: 3-5 minutes per person to present your finished project to the class
+
+- Great ideas so far! Excited to see the projects
+
+```{r}
+#| echo: false
+countdown::countdown(35, top=0)
+```

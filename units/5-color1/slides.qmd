@@ -1,0 +1,113 @@
+---
+title:  Week 5
+subtitle:  Use of Color
+format: stat198slides-revealjs
+---
+
+# Agenda
+
+-   Quiz covering week 2 to week 4
+-   RGB Model: building a foundation of color
+-   Coding activity: 
+
+# Quiz
+
+You will have 35 minutes to complete the quiz. Good luck (and may the odds be ever in your favor)!!
+
+```{r}
+#| echo: false
+countdown::countdown(35, top=0)
+```
+
+# Introduction to Color
+. . . 
+
+The use of color is a big aspect in any visual display for two main reasons:
+
+-   We need to make decisions about what colors to use and for what purpose
+-   We must tell a computer those colors.
+
+## Common purposes for color usage
+. . .
+
+-   **Data encoding:** 
+
+-   **Design aspects:**
+
+::: {.notes}
+Data encoding: A main use of color (although not the only one) is to encode data. This encoding chiefly depends on the type of variables we are working with (e.g. qualitative or quantitative, discrete or continuous).
+Design aspects: Another important use of color has to do with design considerations such as psychology of color, decorative purposes, harmony, and things like that.
+:::
+
+## How do we specify color in a computational sense?
+
+::: {.notes}
+How do we tell a computer program what kind of color we want to use? The answer to this question is given by Color Models, and their associated color spaces (or geometric volumes).
+:::
+# RGB Model
+
+. . .
+
+The **R**ed **G**reen **B**lue **Model** is based on the trichromatic theory.
+
+
+![](images/rgb-model.png){fig-align="center"}
+
+::: {.notes}
+The trichromatic theory explains human color vision as the result of three types of cone cells in the retina, each sensitive to red, green, or blue light whose combined activity allows us to perceive the full spectrum of colors.
+:::
+## RGB
+
+Red, Green, and Blue light sources are combined to display colors on televisions and computer monitors.
+
+![](images/light-sources.png){fig-align="center"}
+
+## RGB
+
+Therefore, any color you see on a monitor can be described by a series of 3 values (in the following order):
+
+-   [Red]{style="color:red;"} value
+-   [Blue]{style="color:blue;"} value
+-   [Green]{style="color:green;"} value
+
+# RGB Decimal Notation
+. . .
+
+![](images/min-max-values.png){fig-alig="center"}
+## RGB Reference Colors
+. . .
+
+![](images/reference-colors.png){fig-alig="center"}
+
+
+
+
+## Why do RGB values range from 0 to 255?
+
+There are 256 numbers from 0 to 255
+
+256 = 2<sup>8</sup>
+
+
+
+# Hexadecimal Notation
+
+## RGB Reference Colors
+. . .
+
+![](images/reference-colors.png){fig-alig="center"}
+
+**Example notations:** 
+-   <span style="color:yellow;">Yellow</span>: (255,255,0)
+-   
+
+
+```{r}
+rgb(200, 200, 200, maxColorValue = 255)
+```
+
+
+
+
+
+
