@@ -1,0 +1,39 @@
+---
+title: "Principles of Data Visualization"
+subtitle: "STAT 198, Spring 2027"
+---
+
+This is the website for the Spring-2026 <a href="https://decal.studentorg.berkeley.edu/about/decal-program" target="_blank">DeCal</a> course **Principles of Data Visualization** at <a href="https://www.berkeley.edu/" target="_blank">UC Berkeley</a>.
+
+::: {.callout-note icon="false"}
+## Announcements
+
+Welcome to **STAT 198 Principles of Data Visualization**!
+
+Our first meeting will be on Tuesday, Feb. 10 @5-7:30 pm in room Evans 340.
+
+No HW assigned during the first week of class.
+:::
+
+## Calendar
+
+Tentative calendar subject to change.
+
+| Week   | Content                                                              | HW            |
+|--------|----------------------------------------------------------------------|---------------|
+|   1    | [1) Welcome and Introduction](units/1-intro/unit01.html){target="_blank"}                     | *none*        |
+|   2    | [2) R Basics 1 - GG](units/2-grammar-graphics/unit02.html){target="_blank"}                      | *none*          |
+|   3    | [3) R Basics 2 - Data Types and Data Cleaning](units/3-data-types/unit03.html){target="_blank"}               | HW 1          |
+|   4    | [4) R Basics 3 - EDA and ggplot2](units/4-eda-ggplot/unit04.html){target="_blank"}      | Finish class activity          |
+|   5    | [5) Color 1 - Quiz and RGB Model](units/5-color1/unit05.html){target="_blank"} | Quiz 1          |
+|   6    | [6) Color 2 - Use of Color](units/6-color2/unit06.html){target="_blank"}           | HW 2          |
+|   7    | [7) Color 3 - Design Considerations](units/7-color3/unit07.html){target="_blank"}                      |           |
+|   8    | [8) Spatial Data 1](units/8-spatial1/unit08.html){target="_blank"}                     | HW 3          |
+|   9    | [9) Spatial Data 2](units/9-spatial2/unit09.html){target="_blank"}                              | Quiz 2, Final Project Proposal          |
+|  10    | [10) Final Project Prep 1 - NYT Graphs/Dashboards](units/10-final/unit10.html){target="_blank"}                                     | Work on final projects          |
+|  11    | [11) Final Project Presentations](units/11-final-pres/unit11.qmd){target="_blank"}                                     | Project          |
+
+
+## Demo Slides
+
+- [Quiz slides](units/1-intro/slides.html){target="_blank"}
