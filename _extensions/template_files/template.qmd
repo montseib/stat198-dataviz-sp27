@@ -1,0 +1,94 @@
+---
+title: Sample Class
+subtitle: Deck Showing Features
+format: stat198slides-revealjs
+---
+
+# Introduction
+
+This is a sample deck for DataViz DeCal Slides. The features include:
+
+1. Title slide with background image.
+2. A bunch of yaml defaults.
+3. Clickable logo in lower right that links to the previous page.
+4. No logo or slide number on title slide.
+5. Custom `:::poll` div for poll questions.
+6. A [countdown timer](https://github.com/gadenbuie/countdown/tree/main/quarto) accessible by adding
+
+   `{{< countdown "01:30" >}}`
+   
+   on a new line.
+
+
+## Agenda
+
+- Introduction  
+- Example Poll  
+- Countdown  
+- Code Example  
+- Two-Column Layout  
+- Wrap-up  
+
+# Example poll
+
+You can provide set up for the code as if it is a normal slide.
+
+::: poll
+What is your favorite color?
+
+A. Red  
+B. Green  
+C. Blue  
+:::
+
+{{< countdown "01:30" >}}
+
+
+## Code Example
+
+Here’s an example of code and output using **ggplot2** in R.
+
+```{r}
+#| output-location: column-fragment
+library(ggplot2)
+
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal() +
+  labs(
+    title = "Miles per Gallon vs. Weight",
+    color = "Cylinders"
+  )
+```
+
+## Two Columns {.smaller}
+
+::: columns
+::: column
+
+Explanation
+
+Columns are great for mixing code, plots, and text.\
+
+- Left and right content\
+
+- Works well for comparisons\
+
+- Helps structure visual walkthroughs\
+:::
+
+::: {.column .fragment}
+Example plot
+:::
+:::
+
+# Wrap-Up
+
+### Quarto slides make teaching reproducible
+
+::: poll adds interactivity
+
+{{< countdown >}} adds time control
+
+YAML controls defaults (logos, themes, layout)
